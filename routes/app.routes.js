@@ -1,7 +1,6 @@
 const router = require("express").Router();
+const appController = require("../controllers/app.controller");
 
-router.get("/", (req, res) => {
-  res.status(200).json({ onGoing: true });
-});
+router.get("/", appController.getAllEmployees);
 
 module.exports = router;
