@@ -4,6 +4,7 @@ const db = require("./config/db.config");
 const sequelize = new Sequelize(db.name, db.username, db.password, {
   host: db.host,
   dialect: "postgres",
+  logging: process.env.NODE_ENV === "development",
 });
 
 async function testConnection() {
