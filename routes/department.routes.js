@@ -7,4 +7,6 @@ router.post("/add-department", departmentController.addDepartment);
 
 router.put("/:codigo", departmentController.updateDepartment);
 
+router.delete("/:codigo", departmentController.deleteDepartment);
+
 module.exports = router;

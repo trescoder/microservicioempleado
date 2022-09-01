@@ -8,17 +8,17 @@ async function createDepartment(department) {
   }
 }
 
-async function getSingleDepartmentByPK(departmentCode) {
+async function getSingleDepartmentByPK(departmentPK) {
   try {
-    return departmentModel.findByPk(departmentCode);
+    return departmentModel.findByPk(departmentPK);
   } catch (error) {
     throw new Error(error);
   }
 }
 
-async function updateDepartment(departmentCode, updatedData) {
+async function updateDepartment(departmentPK, updatedData) {
   try {
-    const department = await getSingleDepartmentByPK(departmentCode);
+    const department = await getSingleDepartmentByPK(departmentPK);
     department.set({
       nombre: updatedData.nombre ?? department.nombre,
       presupuesto: updatedData.presupuesto ?? department.presupuesto,
@@ -29,8 +29,19 @@ async function updateDepartment(departmentCode, updatedData) {
   }
 }
 
+async function deleteDepartmentByPK(departmentPK) {
+  try {
+    const department = await getSingleDepartmentByPK(departmentPK);
+    await department.destroy();
+    return { msg: "department removed" };
+  } catch (error) {
+    throw new Error(error);
+  }
+}
+
 module.exports = {
   createDepartment,
   updateDepartment,
   getSingleDepartmentByPK,
+  deleteDepartmentByPK,
 };
