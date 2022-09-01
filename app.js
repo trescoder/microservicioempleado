@@ -7,10 +7,10 @@ const { testConnection } = require("./db.connection");
 
 app.use(morgan("dev"));
 app.use(cors());
-
 app.get("/", (req, res) => {
-  return res.status(200).json({ data: {} });
+  return res.redirect(301, "/employees");
 });
+app.use("/employees", require("./routes/app.routes"));
 
 app.listen(3000, async () => {
   await testConnection();
