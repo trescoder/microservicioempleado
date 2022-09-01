@@ -3,7 +3,7 @@ const morgan = require("morgan");
 const cors = require("cors");
 const express = require("express");
 const app = express();
-const testConnection = require("./db.connection");
+const { testConnection } = require("./db.connection");
 
 app.use(morgan("dev"));
 app.use(cors());
