@@ -27,7 +27,7 @@ async function createEmployee(employee) {
 async function deleteEmployeeByPK(employeeCode) {
   try {
     const employee = await getSingleEmployeeByPK(employeeCode);
-    return EmpleadoModel.destroy(employee);
+    return employee.destroy();
   } catch (error) {
     throw new Error(error);
   }

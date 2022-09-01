@@ -5,4 +5,6 @@ router.get("/", employeeController.getAllEmployees);
 
 router.post("/add-employee", employeeController.addEmployee);
 
+router.delete("/delete-employee/:codigo", employeeController.removeEmployee);
+
 module.exports = router;

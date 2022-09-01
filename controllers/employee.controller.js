@@ -17,4 +17,10 @@ async function addEmployee(req, res) {
   res.status(201).json(new_employee);
 }
 
-module.exports = { getAllEmployees, addEmployee };
+async function removeEmployee(req, res) {
+  const employeeCode = req.params.codigo;
+  const respo = await employeeService.deleteEmployeeByPK(employeeCode);
+  return res.status(200).json({ msg: "employee removed", respo });
+}
+
+module.exports = { getAllEmployees, addEmployee, removeEmployee };
