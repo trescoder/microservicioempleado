@@ -8,6 +8,6 @@ router.put("/:codigo", employeeController.updateEmployee);
 
 router.post("/add-employee", employeeController.addEmployee);
 
-router.delete("/delete-employee/:codigo", employeeController.removeEmployee);
+router.delete("/:codigo", employeeController.removeEmployee);
 
 module.exports = router;
