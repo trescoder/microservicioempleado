@@ -17,7 +17,7 @@ const DepartmentModel = sequelize.define(
       allowNull: false,
     },
     presupuesto: {
-      type: DataTypes.BOOLEAN,
+      type: DataTypes.DOUBLE,
       allowNull: false,
     },
   },
