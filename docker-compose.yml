@@ -12,13 +12,15 @@ services:
     volumes:
       - employees-db:/var/lib/postgresql/data
 
-  app:
+  application:
     build:
       context: .
     environment:
+      DB_NAME: cobrando
       DB_USERNAME: postgres
       DB_PASSWORD: postgres
       DB_HOST: postgres
+      DB_PORT: 5432
     depends_on:
       - postgres
     ports:
