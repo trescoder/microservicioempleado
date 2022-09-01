@@ -12,7 +12,8 @@ app.use(express.urlencoded({ extended: false }));
 app.get("/", (req, res) => {
   return res.redirect(301, "/employees");
 });
-app.use("/employees", require("./routes/app.routes"));
+app.use("/employees", require("./routes/employee.routes"));
+app.use("/department", require("./routes/department.routes"));
 
 app.listen(3000, async () => {
   await testConnection();

@@ -8,6 +8,14 @@ async function getAllEmployees() {
   }
 }
 
+async function getSingleEmployeeByPK(employeeCode) {
+  try {
+    return EmpleadoModel.findByPk(employeeCode);
+  } catch (error) {
+    throw new Error(error);
+  }
+}
+
 async function createEmployee(employee) {
   try {
     return EmpleadoModel.create(employee);
@@ -16,4 +24,18 @@ async function createEmployee(employee) {
   }
 }
 
-module.exports = { getAllEmployees, createEmployee };
+async function deleteEmployeeByPK(employeeCode) {
+  try {
+    const employee = await getSingleEmployeeByPK(employeeCode);
+    return EmpleadoModel.destroy(employee);
+  } catch (error) {
+    throw new Error(error);
+  }
+}
+
+module.exports = {
+  getAllEmployees,
+  createEmployee,
+  getSingleEmployeeByPK,
+  deleteEmployeeByPK,
+};
