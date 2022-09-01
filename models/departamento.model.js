@@ -5,14 +5,10 @@ const DepartmentModel = sequelize.define(
   "Department",
   {
     // Model attributes are define here
-    id: {
+    codigo: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
-      allowNull: false,
-    },
-    codigo: {
-      type: DataTypes.STRING,
       unique: true,
       allowNull: false,
     },
@@ -27,7 +23,7 @@ const DepartmentModel = sequelize.define(
   },
   {
     timestamps: false, // removed timestamps for being auto created
-    indexes: ["codigo"], // set codigo as an index
+    indexes: [{ unique: true, fields: ["codigo"] }], // set codigo as an index
   }
 );
 

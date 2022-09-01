@@ -7,14 +7,10 @@ const EmployeeModel = sequelize.define(
   "Employee",
   {
     // Model attributes are define here
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
-      allowNull: false,
-    },
     codigo: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
       unique: true,
       allowNull: false,
     },
@@ -46,7 +42,7 @@ const EmployeeModel = sequelize.define(
   },
   {
     timestamps: false, // removed timestamps for being auto created
-    indexes: ["codigo"], // set codigo as an index
+    indexes: [{ unique: true, fields: ["codigo"] }], // set codigo as an index
   }
 );
 
