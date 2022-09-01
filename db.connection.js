@@ -3,6 +3,7 @@ const db = require("./config/db.config");
 
 const sequelize = new Sequelize(db.name, db.username, db.password, {
   host: db.host,
+  port: db.port,
   dialect: "postgres",
   logging: process.env.NODE_ENV === "development",
 });
