@@ -8,4 +8,12 @@ async function getAllEmployees() {
   }
 }
 
-module.exports = { getAllEmployees };
+async function createEmployee(employee) {
+  try {
+    return EmpleadoModel.create(employee);
+  } catch (error) {
+    throw new Error(error);
+  }
+}
+
+module.exports = { getAllEmployees, createEmployee };
