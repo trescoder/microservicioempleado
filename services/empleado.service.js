@@ -24,6 +24,22 @@ async function createEmployee(employee) {
   }
 }
 
+async function updateEmployee(employeeCode, updatedData) {
+  try {
+    const employee = await getSingleEmployeeByPK(employeeCode);
+    employee.set({
+      nombre: updatedData.nombre ?? employee.nombre,
+      apellido1: updatedData.apellido1 ?? employee.apellido1,
+      apellido2: updatedData.apellido2 ?? employee.apellido2,
+      codigo_departamento:
+        updatedData.codigo_departamento ?? employee.codigo_departamento,
+    });
+    return employee.save();
+  } catch (error) {
+    return error;
+  }
+}
+
 async function deleteEmployeeByPK(employeeCode) {
   try {
     const employee = await getSingleEmployeeByPK(employeeCode);
@@ -37,5 +53,6 @@ module.exports = {
   getAllEmployees,
   createEmployee,
   getSingleEmployeeByPK,
+  updateEmployee,
   deleteEmployeeByPK,
 };
