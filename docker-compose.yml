@@ -15,8 +15,9 @@ services:
   application:
     build:
       context: .
+    restart: always
     environment:
-      DB_NAME: cobrando
+      DB_NAME: postgres
       DB_USERNAME: postgres
       DB_PASSWORD: postgres
       DB_HOST: postgres
