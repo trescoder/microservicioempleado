@@ -1,7 +1,7 @@
 # microservicioempleado
 
 to run the application, just clone the repo and execute the command "docker compose up", this server will 
-be listening on port 3000 by default
+be listening on port 1234 by default
 
 ## Rutas disponibles
 
